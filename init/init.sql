@@ -22,10 +22,25 @@ CREATE TABLE users
 
 CREATE TABLE events
 (
-    id          BIGSERIAL PRIMARY KEY NOT NULL UNIQUE,
-    user_id     BIGINT                NOT NULL,
-    name        CITEXT,
-    description CITEXT,
+    id             BIGSERIAL PRIMARY KEY NOT NULL UNIQUE,
+    name           CITEXT,
+    time_from      TIMESTAMP             NOT NULL,
+    time_to        TIMESTAMP             NOT NULL,
+    all_day        BOOLEAN,
+    repeating      BOOLEAN,
+    repeating_info CITEXT,
+    call_link      CITEXT,
+    description    CITEXT,
+    place          CITEXT,
+    calendar       CITEXT,
+    remember_info  CITEXT
+
+);
+
+CREATE TABLE users_events
+(
+    event_id BIGINT NOT NULL UNIQUE,
+    user_id  BIGINT NOT NULL UNIQUE,
 
     FOREIGN KEY (user_id) REFERENCES users (id)
         ON DELETE CASCADE
