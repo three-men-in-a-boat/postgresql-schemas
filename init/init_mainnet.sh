@@ -1,0 +1,1 @@
+psql -h localhost -d mainnet -U main -p 5432 -a -q -f /home/centos/database/init/init.sql
