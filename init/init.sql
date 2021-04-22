@@ -14,15 +14,3 @@ CREATE TABLE users
 
     created_at         TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
-
-CREATE TABLE events
-(
-    id          BIGSERIAL PRIMARY KEY NOT NULL UNIQUE,
-    user_id     BIGINT                NOT NULL,
-    name        CITEXT,
-    description CITEXT,
-
-    FOREIGN KEY (user_id) REFERENCES users (id)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
-);
