@@ -7,9 +7,9 @@ CREATE TABLE users
     id                 BIGSERIAL PRIMARY KEY                              NOT NULL UNIQUE,
     telegram_user_id   BIGINT                                             NOT NULL UNIQUE,
 
-    mail_user_id       VARCHAR(128) UNIQUE CHECK ( mail_user_id <> '' ),
-    mail_user_email    VARCHAR(512) UNIQUE CHECK ( mail_user_email <> '' ),
-    mail_refresh_token VARCHAR(128) UNIQUE CHECK ( mail_refresh_token <> '' ),
+    mail_user_id       VARCHAR(128)                                       NOT NULL UNIQUE CHECK ( mail_user_id <> '' ),
+    mail_user_email    VARCHAR(512)                                       NOT NULL UNIQUE CHECK ( mail_user_email <> '' ),
+    mail_refresh_token VARCHAR(128)                                       NOT NULL UNIQUE CHECK ( mail_refresh_token <> '' ),
 
     created_at         TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL
 );
